@@ -39,7 +39,7 @@ public class SliderPreference extends DialogPreference {
 	 */
 	public SliderPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		setDialogLayoutResource(R.layout.dialog);
+		setDialogLayoutResource(R.layout.slider_preference_dialog);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class SliderPreference extends DialogPreference {
 	 */
 	public SliderPreference(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		setDialogLayoutResource(R.layout.dialog);
+		setDialogLayoutResource(R.layout.slider_preference_dialog);
 	}
 
 	@Override
