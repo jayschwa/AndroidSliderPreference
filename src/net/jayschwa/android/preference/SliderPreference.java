@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -74,6 +74,7 @@ public class SliderPreference extends DialogPreference {
 		setValue(restoreValue ? getPersistedFloat(mValue) : (Float) defaultValue, false);
 	}
 
+	@Override
 	public CharSequence getSummary() {
 		if (mSummaries != null && mSummaries.length > 0) {
 			int index = (int) (mValue * mSummaries.length);
@@ -88,11 +89,13 @@ public class SliderPreference extends DialogPreference {
 		mSummaries = summaries;
 	}
 
+	@Override
 	public void setSummary(CharSequence summary) {
 		super.setSummary(summary);
 		mSummaries = null;
 	}
 
+	@Override
 	public void setSummary(int summaryResId) {
 		try {
 			setSummary(getContext().getResources().getStringArray(summaryResId));
