@@ -31,6 +31,7 @@ public class SliderPreference extends DialogPreference {
 	protected float mValue;
 	protected int mSeekBarValue;
 	protected int mSeekBarResolution = 1000;
+	protected CharSequence[] mSummaries;
 	protected final static float DEFAULT_VALUE = 0.5f;
 
 	/**
@@ -39,7 +40,7 @@ public class SliderPreference extends DialogPreference {
 	 */
 	public SliderPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		setDialogLayoutResource(R.layout.slider_preference_dialog);
+		setup(context, attrs);
 	}
 
 	/**
@@ -49,7 +50,18 @@ public class SliderPreference extends DialogPreference {
 	 */
 	public SliderPreference(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		setup(context, attrs);
+	}
+
+	private void setup(Context context, AttributeSet attrs) {
 		setDialogLayoutResource(R.layout.slider_preference_dialog);
+		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SliderPreference);
+		try {
+			setSummary(a.getTextArray(R.styleable.SliderPreference_android_summary));
+		} catch (Exception e) {
+			// Do nothing
+		}
+		a.recycle();
 	}
 
 	@Override
@@ -60,6 +72,33 @@ public class SliderPreference extends DialogPreference {
 	@Override
 	protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
 		setValue(restoreValue ? getPersistedFloat(mValue) : (Float) defaultValue, false);
+	}
+
+	public CharSequence getSummary() {
+		if (mSummaries != null && mSummaries.length > 0) {
+			int index = (int) (mValue * mSummaries.length);
+			index = Math.min(index, mSummaries.length - 1);
+			return mSummaries[index];
+		} else {
+			return super.getSummary();
+		}
+	}
+
+	public void setSummary(CharSequence[] summaries) {
+		mSummaries = summaries;
+	}
+
+	public void setSummary(CharSequence summary) {
+		super.setSummary(summary);
+		mSummaries = null;
+	}
+
+	public void setSummary(int summaryResId) {
+		try {
+			setSummary(getContext().getResources().getStringArray(summaryResId));
+		} catch (Exception e) {
+			super.setSummary(summaryResId);
+		}
 	}
 
 	public float getValue() {
