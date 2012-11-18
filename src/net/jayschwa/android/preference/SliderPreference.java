@@ -71,7 +71,7 @@ public class SliderPreference extends DialogPreference {
 
 	@Override
 	protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-		setValue(restoreValue ? getPersistedFloat((Float) defaultValue) : (Float) defaultValue, false);
+		setValue(restoreValue ? getPersistedFloat(DEFAULT_VALUE) : (Float) defaultValue, false);
 	}
 
 	@Override
