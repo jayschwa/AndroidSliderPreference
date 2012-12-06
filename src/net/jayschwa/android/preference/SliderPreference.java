@@ -18,11 +18,12 @@ import android.widget.SeekBar;
  */
 public class SliderPreference extends DialogPreference {
 
+	protected final static float DEFAULT_VALUE = 0.5f;
+	protected final static int SEEKBAR_RESOLUTION = 10000;
+
 	protected float mValue = DEFAULT_VALUE;
 	protected int mSeekBarValue;
-	protected int mSeekBarResolution = 10000;
 	protected CharSequence[] mSummaries;
-	protected final static float DEFAULT_VALUE = 0.5f;
 
 	/**
 	 * @param context
@@ -115,10 +116,10 @@ public class SliderPreference extends DialogPreference {
 
 	@Override
 	protected View onCreateDialogView() {
-		mSeekBarValue = (int) (mValue * mSeekBarResolution);
+		mSeekBarValue = (int) (mValue * SEEKBAR_RESOLUTION);
 		View view = super.onCreateDialogView();
 		SeekBar seekbar = (SeekBar) view.findViewById(R.id.slider_preference_seekbar);
-		seekbar.setMax(mSeekBarResolution);
+		seekbar.setMax(SEEKBAR_RESOLUTION);
 		seekbar.setProgress(mSeekBarValue);
 		seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -142,7 +143,7 @@ public class SliderPreference extends DialogPreference {
 
 	@Override
 	protected void onDialogClosed(boolean positiveResult) {
-		final float newValue = (float) mSeekBarValue / mSeekBarResolution;
+		final float newValue = (float) mSeekBarValue / SEEKBAR_RESOLUTION;
 		if (positiveResult && callChangeListener(newValue)) {
 			setValue(newValue);
 		}
