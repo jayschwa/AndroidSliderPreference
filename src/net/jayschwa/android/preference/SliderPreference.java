@@ -110,10 +110,6 @@ public class SliderPreference extends DialogPreference {
 		}
 	}
 
-	protected void setSeekBarValue(int value) {
-		mSeekBarValue = value;
-	}
-
 	@Override
 	protected View onCreateDialogView() {
 		mSeekBarValue = (int) (mValue * SEEKBAR_RESOLUTION);
@@ -134,7 +130,7 @@ public class SliderPreference extends DialogPreference {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 				if (fromUser) {
-					SliderPreference.this.setSeekBarValue(progress);
+					SliderPreference.this.mSeekBarValue = progress;
 				}
 			}
 		});
