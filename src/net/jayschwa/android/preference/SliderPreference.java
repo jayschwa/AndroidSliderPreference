@@ -20,7 +20,7 @@ public class SliderPreference extends DialogPreference {
 
 	protected float mValue = -1;
 	protected int mSeekBarValue;
-	protected int mSeekBarResolution = 1000;
+	protected int mSeekBarResolution = 10000;
 	protected CharSequence[] mSummaries;
 	protected final static float DEFAULT_VALUE = 0.5f;
 
