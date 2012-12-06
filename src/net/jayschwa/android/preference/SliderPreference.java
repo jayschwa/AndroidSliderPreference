@@ -18,7 +18,7 @@ import android.widget.SeekBar;
  */
 public class SliderPreference extends DialogPreference {
 
-	protected float mValue = -1;
+	protected float mValue = DEFAULT_VALUE;
 	protected int mSeekBarValue;
 	protected int mSeekBarResolution = 10000;
 	protected CharSequence[] mSummaries;
@@ -61,7 +61,7 @@ public class SliderPreference extends DialogPreference {
 
 	@Override
 	protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-		setValue(restoreValue ? getPersistedFloat(DEFAULT_VALUE) : (Float) defaultValue, false);
+		setValue(restoreValue ? getPersistedFloat(mValue) : (Float) defaultValue);
 	}
 
 	@Override
@@ -98,21 +98,15 @@ public class SliderPreference extends DialogPreference {
 		return mValue;
 	}
 
-	public void setValue(float value, boolean notify) {
-		value = Math.max(0, Math.min(value, 1));
+	public void setValue(float value) {
+		value = Math.max(0, Math.min(value, 1)); // clamp to [0, 1]
+		if (shouldPersist()) {
+			persistFloat(value);
+		}
 		if (value != mValue) {
 			mValue = value;
-			if (isPersistent()) {
-				persistFloat(mValue);
-			}
-			if (notify) {
-				notifyChanged();
-			}
+			notifyChanged();
 		}
-	}
-
-	public void setValue(float value) {
-		setValue(value, true);
 	}
 
 	protected void setSeekBarValue(int value) {
