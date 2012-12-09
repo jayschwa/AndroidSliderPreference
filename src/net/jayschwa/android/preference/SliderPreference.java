@@ -18,10 +18,9 @@ import android.widget.SeekBar;
  */
 public class SliderPreference extends DialogPreference {
 
-	protected final static float DEFAULT_VALUE = 0.5f;
 	protected final static int SEEKBAR_RESOLUTION = 10000;
 
-	protected float mValue = DEFAULT_VALUE;
+	protected float mValue;
 	protected int mSeekBarValue;
 	protected CharSequence[] mSummaries;
 
@@ -57,7 +56,7 @@ public class SliderPreference extends DialogPreference {
 
 	@Override
 	protected Object onGetDefaultValue(TypedArray a, int index) {
-		return a.getFloat(index, DEFAULT_VALUE);
+		return a.getFloat(index, 0);
 	}
 
 	@Override
