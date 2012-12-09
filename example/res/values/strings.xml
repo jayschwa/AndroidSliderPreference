@@ -2,6 +2,7 @@
 
     <string name="app_name">Slider Preference Example</string>
     <string name="slider_title">Basic Slider</string>
+    <string name="slider_message">Optional message is defined in android:dialogMessage.</string>
 
     <item name="slider_default" format="float" type="string">0.5</item>
 

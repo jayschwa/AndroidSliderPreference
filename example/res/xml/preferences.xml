@@ -2,6 +2,7 @@
 
     <net.jayschwa.android.preference.SliderPreference
         android:defaultValue="@string/slider_default"
+        android:dialogMessage="@string/slider_message"
         android:key="basic_slider"
         android:summary="@array/slider_summaries"
         android:title="@string/slider_title" />
