@@ -21,21 +21,23 @@ Android Slider Preference Library
 [diag]: https://developer.android.com/reference/android/preference/DialogPreference.html "DialogPreference"
 [shar]: https://developer.android.com/reference/android/content/SharedPreferences.html#getFloat(java.lang.String,%20float) "getFloat()"
 
-## Why?
+## Background
 
-Official [Android Design Pattern][ptrn] documentation recommends a slider for certain types of settings:
+Sliders are recommended by Android's official [design documentation][ptrn] for specific types of settings:
 
 > Use this pattern for a setting where the range of values are not discrete and fall along a continuum.
+>
+> ![Slider design pattern example](https://developer.android.com/design/media/settings_slider.png)
 
-Unfortunately, the Android SDK does not provide a [`Preference`][pref] with slider functionality. Various custom implementations can be found around the web, but many have issues:
+Despite this recommendation, the Android SDK does not actually provide a [`Preference`][pref] with slider functionality. Various custom implementations can be found around the web, but many have issues such as:
 
-* Slider is displayed directly on the settings screen
+* The slider is displayed directly on the settings screen
   * Higher chance of accidental clicks
   * No way to confirm or cancel potential changes
 * Discrete values are displayed to the user
   * Not ideal for this design pattern
 
-This implementation aims to be as consistent as possible with the design pattern and official Android [`Preference`][pref] implementations.
+This library aims to be as consistent as possible with the design pattern and Android's built-in [`Preference`][pref] implementations.
 
 [ptrn]: https://developer.android.com/design/patterns/settings.html#patterns "Settings Design Patterns"
 [pref]: https://developer.android.com/reference/android/preference/Preference.html "Preference"
