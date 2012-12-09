@@ -13,7 +13,7 @@ Android Slider Preference Library
   * A single `String` still works too
 * Subclass of [`DialogPreference`][diag]
   * Supports all [dialog-specific attributes][datr] such as `android:dialogMessage`
-  * Visually-consistent with official Android preferences
+  * Visually-consistent with Android's built-in preferences
   * Less error-prone than displaying the slider directly on the settings screen
 * [MIT License](#license)
 
