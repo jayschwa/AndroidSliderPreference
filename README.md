@@ -1,5 +1,5 @@
-Android Slider Preference
-=========================
+Android Slider Preference Library
+=================================
 
 ![Screenshot](https://raw.github.com/jayschwa/AndroidSliderPreference/master/screenshot.png)
 
@@ -15,6 +15,7 @@ Android Slider Preference
   * Supports all [dialog-specific attributes][datr] such as `android:dialogMessage`
   * Visually-consistent with official Android preferences
   * Less error-prone than displaying the slider directly on the settings screen
+* [MIT License](#license)
 
 [datr]: https://developer.android.com/reference/android/preference/DialogPreference.html#lattrs "DialogPreference attributes"
 [diag]: https://developer.android.com/reference/android/preference/DialogPreference.html "DialogPreference"
@@ -38,3 +39,18 @@ This implementation aims to be as consistent as possible with the design pattern
 
 [ptrn]: https://developer.android.com/design/patterns/settings.html#patterns "Settings Design Patterns"
 [pref]: https://developer.android.com/reference/android/preference/Preference.html "Preference"
+
+## License
+
+This library is licensed under the [MIT License][mit]. A copy of the license is provided in [LICENSE.txt][copy]:
+
+> Copyright 2012 Jay Weisskopf
+>
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[copy]: https://raw.github.com/jayschwa/AndroidSliderPreference/master/LICENSE.txt
+[mit]: http://opensource.org/licenses/MIT "Open Source Initiative - The MIT License"
