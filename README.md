@@ -21,6 +21,16 @@ Android Slider Preference Library
 [diag]: https://developer.android.com/reference/android/preference/DialogPreference.html "DialogPreference"
 [shar]: https://developer.android.com/reference/android/content/SharedPreferences.html#getFloat(java.lang.String,%20float) "getFloat()"
 
+## How To Use
+
+### Add the library to your project
+
+1. Clone or download a copy of the library
+2. Import the library into Eclipse: File menu -> Import -> Existing Project into Workspace
+3. Open your application's project properties and [add a library reference][ref] to "SliderPreference"
+
+[ref]: https://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject
+
 ## Background
 
 Sliders are recommended by Android's official [design documentation][ptrn] for specific types of settings:
