@@ -23,13 +23,49 @@ Android Slider Preference Library
 
 ## How To Use
 
-### Add the library to your project
+### Add the library to your application
+
+Before you can add a `SliderPreference` to your application, you must first add a library reference:
 
 1. Clone or download a copy of the library
 2. Import the library into Eclipse: File menu -> Import -> Existing Project into Workspace
 3. Open your application's project properties and [add a library reference][ref] to "SliderPreference"
 
 [ref]: https://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject
+
+### Add a slider to your application
+
+``` XML
+<!-- preferences.xml -->
+<net.jayschwa.android.preference.SliderPreference
+    android:key="my_slider"
+    android:title="@string/slider_title"
+    android:summary="@array/slider_summaries"
+    android:defaultValue="@string/slider_default"
+    android:dialogMessage="@string/slider_message" />
+```
+``` XML
+<!-- strings.xml -->
+<string name="slider_title">Temperature</string>
+<string-array name="slider_summaries">
+    <!-- You can define as many summaries as you'd like -->
+    <!-- The active summary will reflect the preference's current value -->
+    <item>Freezing</item> <!-- 0.00 to 0.25 -->
+    <item>Chilly</item>   <!-- 0.25 to 0.50 -->
+    <item>Warm</item>     <!-- 0.50 to 0.75 -->
+    <item>Boiling</item>  <!-- 0.75 to 1.00 -->
+</string-array>
+<item name="slider_default" format="float" type="string">0.5</item>
+<string name="slider_message">Optional message displayed in the dialog above the slider</string>
+```
+
+It is possible to define the default value directly in the attribute. The summary can also be a regular string, instead of a string array:
+
+``` XML
+<net.jayschwa.android.preference.SliderPreference
+    android:summary="This summary is static and boring"
+    android:defaultValue="0.5" />
+```
 
 ## Background
 
