@@ -1,7 +1,7 @@
 Android Slider Preference Library
 =================================
 
-![Screenshot](https://raw.github.com/jayschwa/AndroidSliderPreference/master/screenshot.png)
+![A dialog-based preference that provides slider widget functionality. Useful for settings where the range of values are not discrete and fall along a continuum. This preference will store a float between 0.0 and 1.0 in the SharedPreferences.](https://raw.github.com/jayschwa/AndroidSliderPreference/master/screenshot.png)
 
 ## Overview
 
