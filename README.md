@@ -23,7 +23,30 @@ Android Slider Preference Library
 
 ## How To Use
 
-### Add the library to your application
+### Android Studio
+
+1. Paste or clone this library into the `/libs` folder, in the root directory of your project. Create a new folder: `/libs` if not already present.  (This step is not required - only for keeping cleaner project structure)
+
+2. Edit `settings.gradle` by adding the library. You have also define a project directory for the library. Your `settings.gradle` should look like below:
+
+    ```
+    include ':app', ':SliderPreference'
+    project(':SliderPreference').projectDir = new File('libs/SliderPreference')
+    ```
+
+3. In `app/build.gradle` add the SliderPreference library as a dependency:
+
+    ```
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile 'com.android.support:appcompat-v7:21.0.3'
+        compile project(":SliderPreference")
+    }
+    ```
+
+4. Sync project, clean and build. You can use the SliderPreference as part of your project now.
+
+### Eclipse
 
 Before you can add a `SliderPreference` to your application, you must first add a library reference:
 
