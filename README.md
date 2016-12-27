@@ -5,8 +5,10 @@ Android Slider Preference Library
 
 ## Overview
 
-* Slider represents a `float` between `0.0` and `1.0`
+* Slider saves its value as a `float`
   * Access with `SliderPreference.getValue()` or [`SharedPreferences.getFloat()`][shar]
+  * Basic implementation has a linear scale ranging between `0.0` and `1.0`, and produces values suitable for use as addends
+  * Alternate implementation has a logarithmic scale ranging from `0.1` to `10.0`, and produces values suitable for use as multipliers
 * Supports multiple summaries (e.g. "Low", "Medium", "High") and selects one based on the slider's position
   * Java: `SliderPreference.setSummary(CharSequence[] summaries)`
   * XML: `android:summary="@array/string_array_of_summaries"`

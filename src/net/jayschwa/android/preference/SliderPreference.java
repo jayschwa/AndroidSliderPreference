@@ -99,14 +99,22 @@ public class SliderPreference extends DialogPreference {
 	}
 
 	public void setValue(float value) {
+		setValueInternally(value);
+	}
+
+	protected void setValueInternally(float value) {
 		value = Math.max(0, Math.min(value, 1)); // clamp to [0, 1]
 		if (shouldPersist()) {
-			persistFloat(value);
+			setPersistentValue(value);
 		}
 		if (value != mValue) {
 			mValue = value;
 			notifyChanged();
 		}
+	}
+
+	protected void setPersistentValue(float value) {
+		persistFloat(value);
 	}
 
 	@Override
@@ -140,7 +148,7 @@ public class SliderPreference extends DialogPreference {
 	protected void onDialogClosed(boolean positiveResult) {
 		final float newValue = (float) mSeekBarValue / SEEKBAR_RESOLUTION;
 		if (positiveResult && callChangeListener(newValue)) {
-			setValue(newValue);
+			setValueInternally(newValue);
 		}
 		super.onDialogClosed(positiveResult);
 	}
