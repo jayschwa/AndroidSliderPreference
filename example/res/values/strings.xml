@@ -1,10 +1,10 @@
 <resources>
 
     <string name="app_name">Slider Preference Example</string>
-    <string name="slider_title">Basic Slider</string>
-    <string name="slider_message">Optional message is defined in android:dialogMessage.</string>
-
-    <item name="slider_default" format="float" type="string">0.5</item>
+    <string name="basic_slider_title">Basic Slider</string>
+    <string name="logarithmic_slider_title">Logarithmic Slider</string>
+    <string name="basic_slider_message">This preference will store a float between 0.0 and 1.0, using a linear scale.</string>
+    <string name="logarithmic_slider_message">This preference will store a float between 0.1 and 10.0, using a logarithmic scale.</string>
 
     <string-array name="slider_summaries">
         <item>Low</item>
