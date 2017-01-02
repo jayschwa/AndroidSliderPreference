@@ -50,7 +50,7 @@ dependencies {
 
     ```
     include ':app', ':SliderPreference'
-    project(':SliderPreference').projectDir = new File('libs/SliderPreference')
+    project(':SliderPreference').projectDir = new File('libs/AndroidSliderPreference')
     ```
 
 3. In `app/build.gradle` add the SliderPreference library as a dependency:
