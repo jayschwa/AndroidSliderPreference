@@ -7,6 +7,7 @@
 package net.jayschwa.android.preference;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 
 /**
@@ -14,15 +15,23 @@ import android.util.AttributeSet;
  */
 public class LogarithmicSliderPreference extends SliderPreference {
 
-	private static final double logarithmicMinimum = 0.1;
-	private static final double logarithmicMaximum = 10.0;
+	private static final float defaultLogarithmicMinimum = (float) 0.1;
+	private static final float defaultLogarithmicMaximum = (float) 10.0;
 	private static final double linearMinimum = 0.0;
 	private static final double linearMaximum = 1.0;
 	private static final double base = 10.0;
 
 	// mapping equation is: logarithmicValue = a * base ^ (b * linearValue), where a and b are constants, so:
-	private static final double b = Math.log10(logarithmicMaximum / logarithmicMinimum) / (linearMaximum - linearMinimum);
-	private static final double a = logarithmicMaximum / Math.pow(base, (b * linearMaximum));
+	private final double a;
+	private final double b;
+
+	private static double calculateA(final double logarithmicMaximum, final double b) {
+		return logarithmicMaximum / Math.pow(base, (b * linearMaximum));
+	}
+
+	private static double calculateB(final double logarithmicMinimum, final double logarithmicMaximum) {
+		return Math.log10(logarithmicMaximum / logarithmicMinimum) / (linearMaximum - linearMinimum);
+	}
 
 	/**
 	 * @param context
@@ -30,6 +39,14 @@ public class LogarithmicSliderPreference extends SliderPreference {
 	 */
 	public LogarithmicSliderPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
+
+		TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.LogarithmicSliderPreference);
+		final float logarithmicMinimum = attributes.getFloat(R.styleable.LogarithmicSliderPreference_minimum, defaultLogarithmicMinimum);
+		final float logarithmicMaximum = attributes.getFloat(R.styleable.LogarithmicSliderPreference_maximum, defaultLogarithmicMaximum);
+		attributes.recycle();
+
+		b = calculateB(logarithmicMinimum, logarithmicMaximum);
+		a = calculateA(logarithmicMaximum, b);
 	}
 
 	/**
@@ -39,6 +56,14 @@ public class LogarithmicSliderPreference extends SliderPreference {
 	 */
 	public LogarithmicSliderPreference(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+
+		TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.LogarithmicSliderPreference);
+		final float logarithmicMinimum = attributes.getFloat(R.styleable.LogarithmicSliderPreference_minimum, defaultLogarithmicMinimum);
+		final float logarithmicMaximum = attributes.getFloat(R.styleable.LogarithmicSliderPreference_maximum, defaultLogarithmicMaximum);
+		attributes.recycle();
+
+		b = calculateB(logarithmicMinimum, logarithmicMaximum);
+		a = calculateA(logarithmicMaximum, b);
 	}
 
 	@Override

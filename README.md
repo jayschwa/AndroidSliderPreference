@@ -7,8 +7,9 @@ Android Slider Preference Library
 
 * Slider saves its value as a `float`
   * Access with `SliderPreference.getValue()` or [`SharedPreferences.getFloat()`][shar]
-  * Basic implementation has a linear scale ranging between `0.0` and `1.0`, and produces values suitable for use as addends
-  * Alternate implementation has a logarithmic scale ranging from `0.1` to `10.0`, and produces values suitable for use as multipliers
+  * Linear-scaled implementation has a default range between `0.0` and `1.0`, and produces values suitable for use as addends
+  * Logarithmic-scaled implementation has a default range between `0.1` to `10.0`, and produces values suitable for use as multipliers
+  * Range can be customized, using the `minimum` and `maximum` XML attributes
 * Supports multiple summaries (e.g. "Low", "Medium", "High") and selects one based on the slider's position
   * Java: `SliderPreference.setSummary(CharSequence[] summaries)`
   * XML: `android:summary="@array/string_array_of_summaries"`
@@ -65,11 +66,11 @@ dependencies {
     }
     ```
 
-4. Sync project, clean and build. You can use the SliderPreference as part of your project now.
+4. Sync project, clean and build. You can use a slider preference as part of your project now.
 
 ### Eclipse
 
-Before you can add a `SliderPreference` to your application, you must first add a library reference:
+Before you can add a slider preference to your application, you must first add a library reference:
 
 1. Clone or download a copy of the library
 2. Import the library into Eclipse: File menu -> Import -> Existing Project into Workspace
@@ -81,12 +82,14 @@ Before you can add a `SliderPreference` to your application, you must first add 
 
 ``` XML
 <!-- preferences.xml -->
-<net.jayschwa.android.preference.SliderPreference
+<net.jayschwa.android.preference.LinearSliderPreference xmlns:slider="http://schemas.android.com/apk/res-auto"
     android:key="my_slider"
     android:title="@string/slider_title"
     android:summary="@array/slider_summaries"
     android:defaultValue="@string/slider_default"
-    android:dialogMessage="@string/slider_message" />
+    android:dialogMessage="@string/slider_message"
+    slider:minimum="@string/slider_minimum"
+    slider:maximum="@string/slider_maximum" />
 ```
 ``` XML
 <!-- strings.xml -->
@@ -100,15 +103,19 @@ Before you can add a `SliderPreference` to your application, you must first add 
     <item>Boiling</item>  <!-- 0.75 to 1.00 -->
 </string-array>
 <item name="slider_default" format="float" type="string">0.5</item>
+<item name="slider_minimum" format="float" type="string">0.0</item>
+<item name="slider_maximum" format="float" type="string">1.0</item>
 <string name="slider_message">Optional message displayed in the dialog above the slider</string>
 ```
 
-It is possible to define the default value directly in the attribute. The summary can also be a regular string, instead of a string array:
+It is possible to define the default, maximum and minimum values directly in their respective attributes. The summary can also be a regular string, instead of a string array:
 
 ``` XML
-<net.jayschwa.android.preference.SliderPreference
+<net.jayschwa.android.preference.LinearSliderPreference xmlns:slider="http://schemas.android.com/apk/res-auto"
     android:summary="This summary is static and boring"
-    android:defaultValue="0.5" />
+    android:defaultValue="0.5"
+    slider:minimum="0.0"
+    slider:maximum="1.0" />
 ```
 
 ## Background
