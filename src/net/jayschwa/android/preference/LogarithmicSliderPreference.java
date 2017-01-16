@@ -17,8 +17,6 @@ public class LogarithmicSliderPreference extends SliderPreference {
 
 	private static final float defaultLogarithmicMinimum = (float) 0.1;
 	private static final float defaultLogarithmicMaximum = (float) 10.0;
-	private static final double linearMinimum = 0.0;
-	private static final double linearMaximum = 1.0;
 	private static final double base = 10.0;
 
 	// mapping equation is: logarithmicValue = a * base ^ (b * linearValue), where a and b are constants, so:
@@ -26,11 +24,11 @@ public class LogarithmicSliderPreference extends SliderPreference {
 	private final double b;
 
 	private static double calculateA(final double logarithmicMaximum, final double b) {
-		return logarithmicMaximum / Math.pow(base, (b * linearMaximum));
+		return logarithmicMaximum / Math.pow(base, (b * SliderPreference.MAXIMUM));
 	}
 
 	private static double calculateB(final double logarithmicMinimum, final double logarithmicMaximum) {
-		return Math.log10(logarithmicMaximum / logarithmicMinimum) / (linearMaximum - linearMinimum);
+		return Math.log10(logarithmicMaximum / logarithmicMinimum) / (SliderPreference.MAXIMUM - SliderPreference.MINIMUM);
 	}
 
 	/**

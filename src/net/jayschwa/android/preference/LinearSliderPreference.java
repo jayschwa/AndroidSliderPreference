@@ -15,19 +15,16 @@ import android.util.AttributeSet;
  */
 public class LinearSliderPreference extends SliderPreference {
 
-	private static final float defaultMinimum = (float) 0.0;
-	private static final float defaultMaximum = (float) 1.0;
-
 	// mapping equation is: mappedValue = a * unmappedValue + b, where a and b are constants, so:
 	private final float a;
 	private final float b;
 
 	private static float calculateA(final float minimum, final float maximum) {
-		return (maximum - minimum) / (defaultMaximum - defaultMinimum);
+		return (maximum - minimum) / (SliderPreference.MAXIMUM - SliderPreference.MINIMUM);
 	}
 
 	private static float calculateB(final float a, final float maximum) {
-		return maximum - a * defaultMaximum;
+		return maximum - a * SliderPreference.MAXIMUM;
 	}
 
 	/**
@@ -38,8 +35,8 @@ public class LinearSliderPreference extends SliderPreference {
 		super(context, attrs);
 
 		TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.LinearSliderPreference);
-		final float minimum = attributes.getFloat(R.styleable.LinearSliderPreference_minimum, defaultMinimum);
-		final float maximum = attributes.getFloat(R.styleable.LinearSliderPreference_maximum, defaultMaximum);
+		final float minimum = attributes.getFloat(R.styleable.LinearSliderPreference_minimum, SliderPreference.MINIMUM);
+		final float maximum = attributes.getFloat(R.styleable.LinearSliderPreference_maximum, SliderPreference.MAXIMUM);
 		attributes.recycle();
 		
 		a = calculateA(minimum, maximum);
@@ -55,8 +52,8 @@ public class LinearSliderPreference extends SliderPreference {
 		super(context, attrs, defStyle);
 
 		TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.LinearSliderPreference);
-		final float minimum = attributes.getFloat(R.styleable.LinearSliderPreference_minimum, defaultMinimum);
-		final float maximum = attributes.getFloat(R.styleable.LinearSliderPreference_maximum, defaultMaximum);
+		final float minimum = attributes.getFloat(R.styleable.LinearSliderPreference_minimum, SliderPreference.MINIMUM);
+		final float maximum = attributes.getFloat(R.styleable.LinearSliderPreference_maximum, SliderPreference.MAXIMUM);
 		attributes.recycle();
 		
 		a = calculateA(minimum, maximum);
