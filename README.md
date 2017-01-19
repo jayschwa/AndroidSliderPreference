@@ -24,7 +24,7 @@ Android Slider Preference Library
 ## How To Use
 
 ### Android Studio
-#### Using Maven
+#### Using Gradle
 1. Step: Add this to your root build.gradle
 ```
 allprojects {
