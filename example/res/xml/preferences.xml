@@ -1,10 +1,23 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:slider="http://schemas.android.com/apk/res-auto" >
 
-    <net.jayschwa.android.preference.SliderPreference
-        android:defaultValue="@string/slider_default"
-        android:dialogMessage="@string/slider_message"
-        android:key="basic_slider"
+    <net.jayschwa.android.preference.LinearSliderPreference
+        android:defaultValue="0.5"
+        android:dialogMessage="@string/linear_slider_message"
+        android:key="linear_slider"
         android:summary="@array/slider_summaries"
-        android:title="@string/slider_title" />
+        android:title="@string/linear_slider_title"
+        slider:minimum="-1.0"
+        slider:maximum="5.0" />
+
+    <net.jayschwa.android.preference.LogarithmicSliderPreference
+        android:defaultValue="1.0"
+        android:dialogMessage="@string/logarithmic_slider_message"
+        android:key="logarithmic_slider"
+        android:summary="@array/slider_summaries"
+        android:title="@string/logarithmic_slider_title"
+        slider:minimum="0.01"
+        slider:maximum="50.0" />
 
 </PreferenceScreen>

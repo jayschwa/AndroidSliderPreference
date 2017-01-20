@@ -6,8 +6,23 @@ Licensed under the MIT License (see LICENSE.txt)
 -->
 <resources>
 
+    <attr name="minimum" format="float" />
+    <attr name="maximum" format="float" />
+
     <declare-styleable name="SliderPreference">
         <attr name="android:summary" />
+    </declare-styleable>
+
+    <declare-styleable name="LogarithmicSliderPreference">
+        <attr name="android:summary" />
+        <attr name="minimum" />
+        <attr name="maximum" />
+    </declare-styleable>
+
+    <declare-styleable name="LinearSliderPreference">
+        <attr name="android:summary" />
+        <attr name="minimum" />
+        <attr name="maximum" />
     </declare-styleable>
 
 </resources>
