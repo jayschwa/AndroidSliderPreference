@@ -5,9 +5,7 @@ Copyright 2012 Jay Weisskopf
 Licensed under the MIT License (see LICENSE.txt)
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.jayschwa.android.preference"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="net.jayschwa.android.preference" >
 
     <uses-sdk
         android:minSdkVersion="1" />
