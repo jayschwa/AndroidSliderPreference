@@ -10,9 +10,18 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
+def eclipseProperties=new Properties()
+file('project.properties').withInputStream {
+    eclipseProperties.load(it)
+}
+
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        targetSdkVersion eclipseProperties.getProperty('target')-'android-'
+    }
 
     sourceSets {
         main {
