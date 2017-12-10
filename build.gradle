@@ -21,10 +21,7 @@ android {
 
     defaultConfig {
         targetSdkVersion eclipseProperties.getProperty('target')-'android-'
-
-        // note that this code assumes it's building the latest tag, and that all tags are present in the repository;
-        // older tags can be built by cloning only a subsection of the history
-        versionCode 'git tag'.execute(null, projectDir) .text.readLines().size()
+        versionCode 'git rev-list --count HEAD'.execute(null, projectDir).text.toInteger()
         versionName 'git describe --tags --always HEAD'.execute(null, projectDir).text.trim()
     }
 
