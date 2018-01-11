@@ -17,7 +17,7 @@ file('project.properties').withInputStream {
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         targetSdkVersion eclipseProperties.getProperty('target')-'android-'
