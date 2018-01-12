@@ -40,7 +40,7 @@ allprojects {
 ```
 dependencies {
     // [...]
-    compile 'com.github.jayschwa:AndroidSliderPreference:v1.0.0'
+    compile 'com.github.jayschwa:AndroidSliderPreference:v1.0.1'
 }
 ```
 
