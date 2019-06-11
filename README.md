@@ -27,7 +27,7 @@ Android Slider Preference Library
 
 #### Using Gradle
 
-1. Step: Add this to your root build.gradle
+1. Step: Add [JitPack](https://jitpack.io/) to your root `build.gradle`:
 ```
 allprojects {
 	repositories {
@@ -36,7 +36,7 @@ allprojects {
 	}
 }
 ```
-2. Step: Add the dependency to your project build.gradle
+2. Step: Add the library as a dependency to your project `build.gradle`:
 ```
 dependencies {
     // [...]
@@ -48,7 +48,7 @@ dependencies {
 
 1. Paste or clone this library into the `/libs` folder, in the root directory of your project. Create a new folder: `/libs` if not already present.  (This step is not required - only for keeping cleaner project structure)
 
-2. Edit `settings.gradle` by adding the library. You have also define a project directory for the library. Your `settings.gradle` should look like below:
+2. Edit `settings.gradle` by adding the library. You also have to define a project directory for the library. Your `settings.gradle` should look like below:
 
     ```
     include ':app', ':SliderPreference'
